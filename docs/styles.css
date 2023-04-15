@@ -1,26 +1,26 @@
 /* styles.css */
 
-div {
-    @media (prefers-color-scheme: dark) {
-        /* Dark theme styles go here */
-        color: white;
-        background-color: black;
-      }
-      
-      @media (prefers-color-scheme: light) {
-        /* Light theme styles go here */
-        color: black;
-        background-color: white;
-      }
-  }
 
   body {
-
-    font-family: "Open Sans", "PT Sans", Calibri, Tahoma, sans-serif;
-
+    /*font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; */
+    font-family: Rockwell Extra Bold,Rockwell Bold,monospace;
+    font-size:small;
+    /*font-family: "Open Sans", "PT Sans", Calibri, Tahoma, sans-serif; */
+    width: 700px;
+    margin: auto;
+    color: black;
+    background-color: rgb(245, 255, 220);
+    
+   
   }
   
   p {
-    color: red;
+    
+  } 
+
+  img {
+    width: 75%;
   }
   
+
+
