@@ -20,5 +20,16 @@
     width: 75%;
   }
   
+  mark.pink {
+    color:#ff0080;
+    background: none;
+}
+
+mark.blue {
+    color:#000d9a;
+    background: none;
+}
+
+
 
 
