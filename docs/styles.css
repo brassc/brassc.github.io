@@ -1,0 +1,26 @@
+/* styles.css */
+
+div {
+    @media (prefers-color-scheme: dark) {
+        /* Dark theme styles go here */
+        color: white;
+        background-color: black;
+      }
+      
+      @media (prefers-color-scheme: light) {
+        /* Light theme styles go here */
+        color: black;
+        background-color: white;
+      }
+  }
+
+  body {
+
+    font-family: "Open Sans", "PT Sans", Calibri, Tahoma, sans-serif;
+
+  }
+  
+  p {
+    color: red;
+  }
+  
