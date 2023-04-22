@@ -25,5 +25,58 @@
 
   <body>
     <h2>Research Outline</h2>
-  </body>
+    <p>
+    I make computer models of neurosurgical procedures performed after a person has sustained a severe head injury. 
+    Severe traumatic brain injuries may be caused by incidents such as car crashes, falls, ...murderous intent (?), etc. .
+    During such a traumatic event, the brain typically sustains a coup-contracoup injury, that is, the sudden arrest or increase in 
+    a person's momentum causes the brain to hit one side of the skull, then the other. This causes bruising and swelling as 
+    every other part of the body would experience. 
+    </p>
+    <p>
+    The problem particular to brain injuries is that the brain is restricted in its swelling. Stuck as it is inside the skull as a 
+    protective, confining box, when a severe injury is sustained the brain swells so much that it starts to squash itself against the skull,
+    injuring itself further. We enter a positive feedback loop of increasing swelling, increasing pressure, and increasing injury. 
+    </p>
+    <p>
+    We may now view the skull as a pressure vessel. To relieve this pressure, the balloon is burst - a hole is cut, typically on 
+    the side of the skull, through which the brain is allowed to expand out. This is the surgery known as decompressive craniectomy, and it is 
+    this surgery that I am modelling.
+    </p>
+    <p> 
+    Why does this work? It is important to remember that brain tissue is very soft. It expands out through the cut hole. A physical
+    allegory for brain tissue is `porcine gelatin', which I prefer to think of as raspberry jelly (Jell-O). My research aims to optimize 
+    the size and position of the hole for reduced deformation (strain, stretch and squash) around the aperture edge. This information will then 
+    be used to inform future in-patient studies for the optimization of neurosurgery for brain trauma. 
+    </p>
+<h4>Engineering Juice:</h4>
+<p>
+    What kind of computer model is it? Not the elegant, mathematical kind of model, or the sexy `AI' kind. 
+    Instead, I use finite element (FE) analysis, the crunchy, mechanical engineering answer to complex 3D physics problems with a range of unknowns. This is based on geometry 
+    extracted from MRI and CT scans using thresholding and existing segmentation algorithms such as <a href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/">FMRIB's FSL</a>.
+</p>
+<p>
+    The extracted geometry mesh is then smoothed and optimized for FE analysis in <a href="https://www.3ds.com/products-services/simulia/products/abaqus/">Abaqus</a> using commercial 3D data optimization software, <a href="https://www.materialise.com/en/industrial/software/3-matic">3-Matic</a> from <em>Materialise</em>,
+    and open-source software such as <a href="https://www.meshlab.net/">MeshLab</a>.  <!-- See also <a href="https://gmsh.info">Gmsh</a> -->
+</p>
+<figure>
+<img src="images/brain_mushroom.png" class="between-text" alt="preliminary results" title="Preliminary Results">
+<figcaption>Preliminary results of decompressive craniectomy model showing brain 'mushrooming'.</figcaption> 
+
+</figure>
+
+<p>The workings, problems, solutions of the model will be discussed in future posts. For now: </p>
+<h4>Broader Points:</h4>
+<p>
+    Your brain is an incredibly delicate, soft entity, with an unknown structure-function relationship to thoughts, feelings, and the broader human consciousness. 
+    Each of us carries a bowl of Jell-O, sloshing around in our heads. Yet this bowl is forming the basis of our personality, the seat of our soul, the bounds of our existence as we know it.
+    Next time you see a kid drop some Jell-0 on the floor, spare a thought for your brain. Imagine how it responds to physical trauma, and be inspired to be careful on your commute, however you make it. Safe travels!
+</p>
+
+<!--<img src="images/brain_mushroom.png" >-->
+
+
+
+</body>
 </html>
+
+

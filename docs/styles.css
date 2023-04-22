@@ -16,9 +16,6 @@
     
   } 
 
-  img {
-    width: 75%;
-  }
   
   mark.pink {
     color:#ff0080;
@@ -29,6 +26,31 @@ mark.blue {
     color:#000d9a;
     background: none;
 }
+
+img.with-text {  
+    float: right;  
+    max-width: 50%;  
+    height: auto; } 
+    .clearfix:after {   
+        content: " ";    
+        visibility: hidden;   
+        display: block;   
+        height: 0;   
+        clear: both; 
+    } 
+img.between-text {  
+    width: 40%;  
+    height: auto;  
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;} 
+
+figcaption {
+    text-align: center; 
+    font-size: smaller;
+    color: grey;
+}
+  
 
 
 
