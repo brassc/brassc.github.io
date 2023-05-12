@@ -51,6 +51,17 @@ figcaption {
     color: grey;
 }
   
+    .footer {
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       background-color: none;
+       color: grey;
+       text-align: left;
+       text-indent: 1%;
+       font-size:0.5vw;
+    }
 
 
 
