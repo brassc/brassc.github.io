@@ -46,9 +46,9 @@
     The extracted geometry mesh is then smoothed and optimized for FE analysis in <a href="https://www.3ds.com/products-services/simulia/products/abaqus/">Abaqus</a> using commercial 3D data optimization software, <a href="https://www.materialise.com/en/industrial/software/3-matic">3-Matic</a> from <em>Materialise</em>,
     and open-source software such as <a href="https://www.meshlab.net/">MeshLab</a>.  <!-- See also <a href="https://gmsh.info">Gmsh</a> -->
 </p>
-<p> The brain tissue itself can be modelled as hyperelastic, meaning that the deformation a material experiences is related to the force
+<p> In this case, the brain tissue itself can be modelled as hyperelastic, meaning that the deformation a material experiences is related to the force
   not by a simple set of constants, but instead by a function ('strain energy density' function). Typically this is relevant for applications where 
-  a material experiences a high level of deformation which would not otherwise be experienced if the material behaved more typically or purely elastically (no hyper-). 
+  a material experiences a high level of deformation or has an 'unusual' structure, e.g. polymers and biological tissues. 
 </p>
 <figure>
 <img src="images/brain_mushroom.png" class="between-text" alt="preliminary results" title="Preliminary Results">
