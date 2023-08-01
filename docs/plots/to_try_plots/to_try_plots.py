@@ -11,10 +11,10 @@ from pylab import plot,show
 #import brainplotlib
 
 def pdf(x):
-    return 1/sqrt(2*pi) * exp(-x**2/2)
+    return 1/np.lib.scimath.sqrt(2*pi) * np.exp(-x**2/2)
 
 def cdf(x):
-    return (1+erf(x/sqrt(2))) / 2
+    return (1+erf(x/np.lib.scimath.sqrt(2))) / 2
 
 def skew(x, e=0,w=1,a=0):
     t=(x-e) / w
@@ -23,7 +23,7 @@ def skew(x, e=0,w=1,a=0):
 
 #create N = 100 equally spaced points between -5 and 5
 N = 1000
-x = linspace(0, 100, N)
+x = np.linspace(0, 100, N)
 
 
 e = 30.0 #location
@@ -42,7 +42,7 @@ plt.xlim([np.min(x), np.max(x)])
 plt.xlabel('Time')
 plt.xticks([])
 plt.yticks([])
-plt.savefig('plots/to_try_plots/intensity-time.jpg')
+#plt.savefig('plots/to_try_plots/intensity-time.jpg')
 plt.show()
 
 
