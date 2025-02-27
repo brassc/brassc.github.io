@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown to HTML Converter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 95vh;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+        }
+        .input-area, .preview-area {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        .preview-area {
+            background-color: #fafafa;
+        }
+        textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            resize: none;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            justify-content: space-between;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input[type="file"] {
+            padding: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        /* Styling for the preview */
+        .preview-area {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+        .preview-area pre {
+            background-color: #f5f5f5;
+            padding: 12px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .preview-area code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .preview-area blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 16px;
+            margin-left: 0;
+            color: #666;
+        }
+        .preview-area img {
+            max-width: 100%;
+        }
+        .preview-area table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .preview-area table, th, td {
+            border: 1px solid #ddd;
+        }
+        .preview-area th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .preview-area th {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Markdown to HTML Converter</h1>
+    
+    <div class="controls">
+        <div>
+            <input type="file" id="file-input" accept=".md, .markdown, .txt">
+            <button id="convert-btn">Convert to HTML</button>
+        </div>
+        <div>
+            <button id="save-md-btn">Save Markdown</button>
+            <button id="save-html-btn">Save HTML</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="input-area">
+            <textarea id="markdown-input" placeholder="Type or paste your Markdown here..."></textarea>
+        </div>
+        <div class="preview-area" id="html-preview"></div>
+    </div>
+
+    <script>
+        // Elements
+        const markdownInput = document.getElementById('markdown-input');
+        const htmlPreview = document.getElementById('html-preview');
+        const fileInput = document.getElementById('file-input');
+        const convertBtn = document.getElementById('convert-btn');
+        const saveMdBtn = document.getElementById('save-md-btn');
+        const saveHtmlBtn = document.getElementById('save-html-btn');
+        
+        // Store the current filename
+        let currentFilename = '';
+        
+        // Convert markdown to HTML and update preview
+        function updatePreview() {
+            const markdown = markdownInput.value;
+            htmlPreview.innerHTML = marked.parse(markdown);
+        }
+        
+        // Load file content
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            // Store the filename without extension
+            currentFilename = file.name.replace(/\.[^/.]+$/, "");
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Get the file content
+                let content = e.target.result;
+                
+                // Add filename as title if it doesn't already have a title
+                if (!content.trim().startsWith('# ')) {
+                    content = `# ${currentFilename}\n\n${content}`;
+                }
+                
+                markdownInput.value = content;
+                updatePreview();
+            };
+            reader.readAsText(file);
+        });
+        
+        // Convert button click
+        convertBtn.addEventListener('click', updatePreview);
+        
+        // Save Markdown button
+        saveMdBtn.addEventListener('click', function() {
+            const filename = currentFilename ? `${currentFilename}.md` : 'document.md';
+            saveFile(markdownInput.value, filename, 'text/markdown');
+        });
+        
+        // Save HTML button
+        saveHtmlBtn.addEventListener('click', function() {
+            // Create full HTML document
+            const markdown = markdownInput.value;
+            const htmlContent = marked.parse(markdown);
+            
+            const fullHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${currentFilename || 'Markdown Preview'}</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 12px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 16px;
+            margin-left: 0;
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    ${htmlContent}
+</body>
+</html>`;
+            
+            const filename = currentFilename ? `${currentFilename}.html` : 'document.html';
+            saveFile(fullHtml, filename, 'text/html');
+        });
+        
+        // Save file function
+        function saveFile(content, filename, contentType) {
+            const blob = new Blob([content], { type: contentType });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            
+            URL.revokeObjectURL(url);
+        }
+        
+        // Initial preview update
+        markdownInput.addEventListener('input', updatePreview);
+    </script>
+</body>
+</html>
