@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>charlottebrass.org</title>
+    <link rel="stylesheet" href="/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+</head>
+
+<body>
+
+    <h1>OpenPGP</h1>
+
+    <a href="/index.html" class="back-link">Back to Home</a>
+
+    <p>OpenPGP email encryption allows you to send and receive encrypted, signed emails. This guide covers setup for common email clients. 
+        Claude helped me write this, especially the part for Windows. </p>
+
+    <h2>macOS</h2>
+
+    <h3>Apple Mail</h3>
+    <ol>
+        <li>Install <a href="https://gpgtools.org/" target="_blank">GPGTools</a> (includes GPG Suite for Mail)</li>
+        <li>Run installer and restart Mail</li>
+        <li>Generate key: Open GPG Keychain > New</li>
+        <li>Enter name and email, set passphrase</li>
+        <li>Compose email: Use lock icon to encrypt, checkmark to sign</li>
+    </ol>
+
+    <h3>Thunderbird</h3>
+    <p>(I advocate everyone switch to <a href="https://www.thunderbird.net/">Thunderbird</a>, it's awesome!) </p>
+    <ol>
+        <li>Install <a href="https://gpgtools.org/" target="_blank">GPGTools</a> (for GPG backend)</li>
+        <li>In Thunderbird: Settings > End-to-End Encryption</li>
+        <li>Add Key > Generate new key pair</li>
+        <li>Compose: OpenPGP menu to encrypt/sign</li>
+    </ol>
+
+    <h2>Windows</h2>
+    <p> (untested by me but I think this is what you'd do)</p>
+    <h3>Outlook</h3>
+    <ol>
+        <li>Install <a href="https://www.gpg4win.org/" target="_blank">Gpg4win</a> (includes Kleopatra)</li>
+        <li>Open Kleopatra > New Key Pair > Create OpenPGP key pair</li>
+        <li>Enter details and passphrase</li>
+        <li>Outlook integration: Install separately via Gpg4win components or use GpgOL plugin</li>
+        <li>Compose: Use Encrypt/Sign buttons in ribbon</li>
+    </ol>
+
+    <h3>Thunderbird</h3>
+    <ol>
+        <li>Install <a href="https://www.gpg4win.org/" target="_blank">Gpg4win</a> (for GPG backend)</li>
+        <li>Setup is identical to macOS version (see above)</li>
+    </ol>
+
+    <h2>Key Exchange</h2>
+    <p>To encrypt emails to someone, you need their public key. Share yours by:</p>
+    <ul>
+        <li>Exporting and sending as attachment</li>
+        <li>Uploading to keyserver (e.g., keys.openpgp.org)</li>
+        <li>Including in email signature</li>
+    </ul>
+
+
+<div class="footer">
+    <p>website created Apr 2023</p>
+</div>
+</body>
+</html>
