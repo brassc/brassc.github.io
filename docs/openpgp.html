@@ -14,11 +14,25 @@
     <a href="/index.html" class="back-link">Back to Home</a>
 
     <p>OpenPGP email encryption allows you to send and receive encrypted, signed emails. This guide covers setup for common email clients. 
-        Claude helped me write this, especially the part for Windows. </p>
+        Claude helped me write this, especially the part for Windows.
+        
+        Importantly, you get a key pair that is yours, one public (to be shared) and one private/secret (to be kept safe and never shared). 
+        The email encryption happens locally on your device, and can be done by simply attaching your public key to an email.
+        
+        Before we begin, a note about key exchange: </p>
+    
+    <h2>Key Exchange</h2>
+    <p>To encrypt emails to someone, you need their public key. Share yours by doing any/all of the below:</p>
+    <ul>
+        <li>Exporting and sending as attachment</li>
+        <li>Uploading to keyserver (e.g., keys.openpgp.org)</li>
+        <li>Including in email signature</li>
+    </ul>
 
-    <h2>macOS</h2>
+    <h2>Setup</h2>
+    <h3>macOS</h3>
 
-    <h3>Apple Mail</h3>
+    <h4>Apple Mail</h4>
     <ol>
         <li>Install <a href="https://gpgtools.org/" target="_blank">GPGTools</a> (includes GPG Suite for Mail)</li>
         <li>Run installer and restart Mail</li>
@@ -27,8 +41,8 @@
         <li>Compose email: Use lock icon to encrypt, checkmark to sign</li>
     </ol>
 
-    <h3>Thunderbird</h3>
-    <p>(I advocate everyone switch to <a href="https://www.thunderbird.net/">Thunderbird</a>, it's awesome!) </p>
+    <h4>Thunderbird</h4>
+    <p>(I advocate everyone switch to <a href="https://www.thunderbird.net/">Thunderbird</a>, it's awesome! Their tagline is literally "Free Your Inbox".) </p>
     <ol>
         <li>Install <a href="https://gpgtools.org/" target="_blank">GPGTools</a> (for GPG backend)</li>
         <li>In Thunderbird: Settings > End-to-End Encryption</li>
@@ -36,9 +50,9 @@
         <li>Compose: OpenPGP menu to encrypt/sign</li>
     </ol>
 
-    <h2>Windows</h2>
+    <h3>Windows</h3>
     <p> (untested by me but I think this is what you'd do)</p>
-    <h3>Outlook</h3>
+    <h4>Outlook</h4>
     <ol>
         <li>Install <a href="https://www.gpg4win.org/" target="_blank">Gpg4win</a> (includes Kleopatra)</li>
         <li>Open Kleopatra > New Key Pair > Create OpenPGP key pair</li>
@@ -47,19 +61,13 @@
         <li>Compose: Use Encrypt/Sign buttons in ribbon</li>
     </ol>
 
-    <h3>Thunderbird</h3>
+    <h4>Thunderbird</h4>
     <ol>
         <li>Install <a href="https://www.gpg4win.org/" target="_blank">Gpg4win</a> (for GPG backend)</li>
         <li>Setup is identical to macOS version (see above)</li>
     </ol>
 
-    <h2>Key Exchange</h2>
-    <p>To encrypt emails to someone, you need their public key. Share yours by:</p>
-    <ul>
-        <li>Exporting and sending as attachment</li>
-        <li>Uploading to keyserver (e.g., keys.openpgp.org)</li>
-        <li>Including in email signature</li>
-    </ul>
+
 
 
 <div class="footer">
