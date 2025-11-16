@@ -18,6 +18,8 @@
     <p>Importantly, you get a key pair that is yours, one public (to be shared) and one private/secret (to be kept safe and never shared).
         Encryption happens locally: your email client uses the recipient's public key to encrypt the message, which only their private key can decrypt.
         You share your public key so others can encrypt emails to you.</p>
+
+    <p> This site explains it well: <a href="https://hackernoon.com/the-web-of-trust-principle-or-how-pgp-works">https://hackernoon.com/the-web-of-trust-principle-or-how-pgp-works</a></p>
         
     <p>Before we begin, a note about key exchange: </p>
     
@@ -25,7 +27,7 @@
     <p>To encrypt emails to someone, you need their public key. Share yours by doing any/all of the below:</p>
     <ul>
         <li>Exporting and sending as attachment</li>
-        <li>Uploading to keyserver (e.g., keys.openpgp.org)</li>
+        <li>Uploading to keyserver (e.g., keys.openpgp.org) - note since EU GDPR rules, this is flaky / not recommended for key exchange</li>
         <li>Including in email signature</li>
     </ul>
 
